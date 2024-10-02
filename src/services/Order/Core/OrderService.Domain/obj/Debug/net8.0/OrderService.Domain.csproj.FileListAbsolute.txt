@@ -1,0 +1,12 @@
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/bin/Debug/net8.0/OrderService.Domain.deps.json
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/bin/Debug/net8.0/OrderService.Domain.dll
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/bin/Debug/net8.0/OrderService.Domain.pdb
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/Debug/net8.0/OrderService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/Debug/net8.0/OrderService.Domain.AssemblyInfoInputs.cache
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/Debug/net8.0/OrderService.Domain.AssemblyInfo.cs
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/Debug/net8.0/OrderService.Domain.csproj.CoreCompileInputs.cache
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/Debug/net8.0/OrderService.Domain.sourcelink.json
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/Debug/net8.0/OrderService.Domain.dll
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/Debug/net8.0/refint/OrderService.Domain.dll
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/Debug/net8.0/OrderService.Domain.pdb
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/Debug/net8.0/ref/OrderService.Domain.dll
