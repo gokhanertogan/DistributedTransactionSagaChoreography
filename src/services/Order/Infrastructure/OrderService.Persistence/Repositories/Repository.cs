@@ -26,4 +26,9 @@ public class Repository<T> : IRepository<T> where T : class
 
     public async Task SaveChangesAsync()
         => await _dbContext.SaveChangesAsync();
+
+    public void Update(T model)
+    {
+        Table.Update(model);
+    }
 }

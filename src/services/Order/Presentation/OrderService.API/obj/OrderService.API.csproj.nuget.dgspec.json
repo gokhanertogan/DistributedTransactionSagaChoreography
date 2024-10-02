@@ -254,6 +254,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj": {
+                "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj"
+              },
               "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Infrastructure/OrderService.Persistence/OrderService.Persistence.csproj": {
                 "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Infrastructure/OrderService.Persistence/OrderService.Persistence.csproj"
               }
