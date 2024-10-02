@@ -1,0 +1,294 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Jobs/ProcessOutboxJob/ProcessOutboxJob.csproj": {}
+  },
+  "projects": {
+    "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj",
+        "projectName": "OrderService.Application",
+        "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj",
+        "packagesPath": "/Users/gokhanertogan/.nuget/packages/",
+        "outputPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/gokhanertogan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/OrderService.Domain.csproj": {
+                "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/OrderService.Domain.csproj"
+              },
+              "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Shared/Shared.csproj": {
+                "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Shared/Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/OrderService.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/OrderService.Domain.csproj",
+        "projectName": "OrderService.Domain",
+        "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/OrderService.Domain.csproj",
+        "packagesPath": "/Users/gokhanertogan/.nuget/packages/",
+        "outputPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/gokhanertogan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Jobs/ProcessOutboxJob/ProcessOutboxJob.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Jobs/ProcessOutboxJob/ProcessOutboxJob.csproj",
+        "projectName": "ProcessOutboxJob",
+        "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Jobs/ProcessOutboxJob/ProcessOutboxJob.csproj",
+        "packagesPath": "/Users/gokhanertogan/.nuget/packages/",
+        "outputPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Jobs/ProcessOutboxJob/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/gokhanertogan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj": {
+                "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj"
+              },
+              "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Shared/Shared.csproj": {
+                "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Shared/Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.2.5, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "Quartz.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "Quartz.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Shared/Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Shared/Shared.csproj",
+        "projectName": "Shared",
+        "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Shared/Shared.csproj",
+        "packagesPath": "/Users/gokhanertogan/.nuget/packages/",
+        "outputPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/gokhanertogan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -3353,6 +3353,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.OpenApi >= 8.0.8",
+      "OrderService.Application >= 1.0.0",
       "OrderService.Persistence >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
@@ -3382,6 +3383,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj": {
+              "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj"
+            },
             "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Infrastructure/OrderService.Persistence/OrderService.Persistence.csproj": {
               "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Infrastructure/OrderService.Persistence/OrderService.Persistence.csproj"
             }
