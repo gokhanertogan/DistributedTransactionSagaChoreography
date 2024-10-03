@@ -143,3 +143,4 @@
 /Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Stock.API/obj/Debug/net8.0/Stock.API.pdb
 /Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Stock.API/obj/Debug/net8.0/Stock.API.genruntimeconfig.cache
 /Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Stock.API/obj/Debug/net8.0/ref/Stock.API.dll
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Stock.API/obj/Debug/net8.0/Stock.API.sourcelink.json

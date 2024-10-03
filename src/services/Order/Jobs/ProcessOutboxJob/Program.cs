@@ -1,10 +1,16 @@
 using MassTransit;
+using OrderService.Persistence;
+using OrderService.Application;
 using ProcessOutboxJob;
 using Quartz;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) =>
     {
+        services.AddPersistenceServices(hostContext.Configuration);
+        services.AddApplicationServices();
+        services.AddTransient<IOrderOutboxProcessService, OrderOutboxProcessService>();
+
         services.AddQuartz(q =>
         {
             var jobKey = new JobKey("OutboxPublishJob");
