@@ -23,9 +23,9 @@ public class OrderOutboxProcessService(IOrderOutboxRepository orderOutboxReposit
         return [.. _orderOutboxRepository.GetWhere(x => x.Status == OrderService.Domain.Enums.OrderOutboxStatus.Pending).OrderBy(x => x.OccurredOn).Take(10)];
     }
 
-    private async Task<bool> MarkAsInProgressAsync(Guid guid, int currentVersion)
+    private async Task<bool> MarkAsInProgressAsync(Guid idempotentToken, int currentVersion)
     {
-        var record = _orderOutboxRepository.GetWhere(x => x.Id == guid && x.Version == currentVersion).FirstOrDefault();
+        var record = _orderOutboxRepository.GetWhere(x => x.IdempotentToken == idempotentToken && x.Version == currentVersion).FirstOrDefault();
 
         if (record != null)
         {
@@ -42,9 +42,9 @@ public class OrderOutboxProcessService(IOrderOutboxRepository orderOutboxReposit
         return false;
     }
 
-    private async Task<bool> MarkAsProcessedAsync(Guid guid, int currentVersion)
+    private async Task<bool> MarkAsProcessedAsync(Guid idempotentToken, int currentVersion)
     {
-        var record = _orderOutboxRepository.GetWhere(x => x.Id == guid && x.Version == currentVersion).FirstOrDefault();
+        var record = _orderOutboxRepository.GetWhere(x => x.IdempotentToken == idempotentToken && x.Version == currentVersion).FirstOrDefault();
 
         if (record != null)
         {
@@ -61,19 +61,6 @@ public class OrderOutboxProcessService(IOrderOutboxRepository orderOutboxReposit
         return false;
     }
 
-    private async Task<bool> SetProcessedDateAsync(Guid idempotentToken)
-    {
-        var record = _orderOutboxRepository.GetWhere(x => x.IdempotentToken == idempotentToken).FirstOrDefault();
-        if (record != null)
-        {
-            record.ProcessedDate = DateTime.UtcNow;
-            _orderOutboxRepository.Update(record);
-            await _orderOutboxRepository.SaveChangesAsync();
-            return true;
-        }
-
-        return false;
-    }
     #endregion
 
 
@@ -88,6 +75,8 @@ public class OrderOutboxProcessService(IOrderOutboxRepository orderOutboxReposit
 
                 foreach (var record in pendingRecords)
                 {
+                    await MarkAsInProgressAsync(record.IdempotentToken, record.Version);
+
                     if (record.Type == nameof(OrderCreatedEvent))
                     {
                         var order = JsonSerializer.Deserialize<Order>(record.Payload!);
@@ -105,7 +94,7 @@ public class OrderOutboxProcessService(IOrderOutboxRepository orderOutboxReposit
                         }
                     }
 
-                    await SetProcessedDateAsync(record.IdempotentToken);
+                    await MarkAsProcessedAsync(record.IdempotentToken, record.Version);
                 }
 
                 OrderSingletonDatabase.DataReaderReady();

@@ -9,3 +9,4 @@
 /Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Shared/obj/Debug/net8.0/refint/Shared.dll
 /Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Shared/obj/Debug/net8.0/Shared.pdb
 /Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Shared/obj/Debug/net8.0/ref/Shared.dll
+/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Shared/obj/Debug/net8.0/Shared.sourcelink.json

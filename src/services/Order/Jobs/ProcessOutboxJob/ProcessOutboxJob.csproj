@@ -19,5 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\OrderService.Application\OrderService.Application.csproj" />
     <ProjectReference Include="..\..\Shared\Shared.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\OrderService.Persistence\OrderService.Persistence.csproj" />
   </ItemGroup>
 </Project>

@@ -1,3 +1,4 @@
+using System.Reflection;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -7,6 +8,6 @@ public static class ServiceRegistrations
 {
     public static void AddApplicationServices(this IServiceCollection services)
     {
-        services.AddMediatR(typeof(ServiceRegistrations));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
     }
 }

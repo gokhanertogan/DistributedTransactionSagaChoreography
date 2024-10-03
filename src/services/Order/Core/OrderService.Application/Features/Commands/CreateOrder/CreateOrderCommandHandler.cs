@@ -13,7 +13,7 @@ public class CreateOrderCommandHandler(IOrderOutboxRepository orderOutboxReposit
 
     public async Task<CreateOrderCommandResponse> Handle(CreateOrderCommandRequest request, CancellationToken cancellationToken)
     {
-        var order = new Order() { Description = request.Description };
+        var order = new Order() { Description = request.Description, Quantity = request.Quantity };
         await _orderRepository.AddAsync(order);
 
         OrderOutbox orderOutbox = new()
