@@ -1,0 +1,35 @@
+<Project>
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+    <EfCoreVersion>10.0.13</EfCoreVersion>
+    <!-- Stay on MassTransit 8.x: it is Apache-2.0 licensed. v9 requires a commercial license. -->
+    <MassTransitVersion>8.5.12</MassTransitVersion>
+    <QuartzVersion>3.22.7</QuartzVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="Dapper" Version="2.1.89" />
+    <PackageVersion Include="MassTransit" Version="$(MassTransitVersion)" />
+    <PackageVersion Include="MassTransit.RabbitMQ" Version="$(MassTransitVersion)" />
+    <!-- Stay on MediatR 12.x: it is Apache-2.0 licensed. v13+ requires a commercial license. -->
+    <PackageVersion Include="MediatR" Version="12.5.0" />
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.1.7" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(EfCoreVersion)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(EfCoreVersion)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(EfCoreVersion)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(EfCoreVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.13" />
+    <PackageVersion Include="Quartz" Version="$(QuartzVersion)" />
+    <PackageVersion Include="Quartz.Extensions.DependencyInjection" Version="$(QuartzVersion)" />
+    <PackageVersion Include="Quartz.Extensions.Hosting" Version="$(QuartzVersion)" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="10.3.1" />
+  </ItemGroup>
+
+  <!-- Transitive pins: Microsoft.Data.SqlClient 6.1.x pulls in a vulnerable System.Security.Cryptography.Pkcs. -->
+  <ItemGroup>
+    <PackageVersion Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
+  </ItemGroup>
+
+</Project>

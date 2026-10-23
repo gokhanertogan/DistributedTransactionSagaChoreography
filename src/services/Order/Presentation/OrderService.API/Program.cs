@@ -37,7 +37,6 @@ app.MapPost("/api/orders", async (CreateOrderCommandRequest request, IMediator m
 })
 .WithName("CreateOrder")
 .Produces<CreateOrderCommandResponse>(StatusCodes.Status200OK)
-.Produces(StatusCodes.Status400BadRequest)
-.WithOpenApi();
+.Produces(StatusCodes.Status400BadRequest);
 
 app.Run();

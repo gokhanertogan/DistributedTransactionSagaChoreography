@@ -1,11 +1,11 @@
 # Distributed Transactions with Saga Choreography
 
-A .NET 8 sample of an event-driven, choreography-based saga across Order, Stock and Payment microservices, plus a separate transactional-outbox example (MassTransit, RabbitMQ, EF Core, SQL Server, Quartz.NET).
+A .NET 10 sample of an event-driven, choreography-based saga across Order, Stock and Payment microservices, plus a separate transactional-outbox example (MassTransit, RabbitMQ, EF Core, SQL Server, Quartz.NET).
 
-![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)
-![MassTransit](https://img.shields.io/badge/MassTransit-8.2.5-1E88E5)
+![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)
+![MassTransit](https://img.shields.io/badge/MassTransit-8.5-1E88E5)
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-broker-FF6600?logo=rabbitmq&logoColor=white)
-![EF Core](https://img.shields.io/badge/EF%20Core-8-512BD4)
+![EF Core](https://img.shields.io/badge/EF%20Core-10-512BD4)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-CC2927?logo=microsoftsqlserver&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
@@ -96,17 +96,21 @@ Writing the business row and the outbox row in one local transaction guarantees 
 
 ## Tech stack
 
-- .NET 8, ASP.NET Core minimal APIs, Worker Service
-- MassTransit 8.2.5 on RabbitMQ
-- Entity Framework Core 8 with SQL Server (migrations included)
-- MediatR 12 (outbox Order service)
-- Quartz.NET 3.13 (outbox publisher job)
+- .NET 10, ASP.NET Core minimal APIs, Worker Service
+- MassTransit 8.5 (Apache-2.0) on RabbitMQ
+- Entity Framework Core 10 with SQL Server (migrations included)
+- MediatR 12.5 (Apache-2.0, outbox Order service)
+- Quartz.NET 3.22 and Dapper (outbox publisher job)
 - Swagger / Swashbuckle (Development environment)
+- Central package management: TFM and shared build settings in `Directory.Build.props`, package versions in `Directory.Packages.props`
 
 ## Project structure
 
 ```text
 DistributedTransactionSagaChoreography.sln
+Directory.Build.props                      # Target framework (net10.0) and shared build settings
+Directory.Packages.props                   # Central NuGet package versions
+global.json                                # .NET 10 SDK
 docker-compose.yml                         # RabbitMQ + SQL Server for local development
 src/services/
 ├── Order.API/                             # Choreography: order service
@@ -133,7 +137,7 @@ src/services/
 
 ### Prerequisites
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/download) or newer
+- [.NET 10 SDK](https://dotnet.microsoft.com/download)
 - Docker
 
 ### 1. Start the infrastructure
@@ -151,6 +155,8 @@ docker compose up -d
 These are **local development defaults only**. They match each service's `appsettings.json`, and you can override them with environment variables such as `ConnectionStrings__ConnectionString`.
 
 > The SQL Server image is `linux/amd64`. On Apple Silicon it runs through Docker Desktop's Rosetta emulation.
+>
+> SQL Server needs about 20 to 30 seconds after `docker compose up` before it accepts logins. If a service exits on startup with a "pre-login handshake" error, wait a moment and start it again.
 
 ### 2. Run the choreography saga
 
@@ -186,6 +192,8 @@ All three requests are in `src/services/Order.API/Order.API.http`. `buyerId` mus
 dotnet run --project src/services/Order/Presentation/OrderService.API --launch-profile http   # http://localhost:5107/swagger
 dotnet run --project src/services/Order/Jobs/ProcessOutboxJob
 ```
+
+Start the job after `OrderService.API` has applied its migration. Until the `OrderOutboxes` table exists, the job logs `Invalid object name 'OrderOutboxes'` on each run.
 
 ```bash
 curl -X POST http://localhost:5107/api/orders -H "Content-Type: application/json" \
