@@ -7,6 +7,7 @@ A .NET 8 sample of an event-driven, choreography-based saga across Order, Stock 
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-broker-FF6600?logo=rabbitmq&logoColor=white)
 ![EF Core](https://img.shields.io/badge/EF%20Core-8-512BD4)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-CC2927?logo=microsoftsqlserver&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 ## Overview
 
@@ -212,3 +213,7 @@ This is a learning sample, not production code:
 - **Errors in the outbox job are swallowed.** A record that fails to publish stays `InProgress` and is not retried.
 - `OrderInbox` and its repository exist, but the inbox side isn't implemented: it isn't mapped in the `DbContext` and nothing uses it.
 - No authentication, validation, health checks or automated tests.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
