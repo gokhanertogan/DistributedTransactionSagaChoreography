@@ -36,6 +36,22 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
+
+    if (!dbContext.Stocks.Any())
+    {
+        dbContext.Stocks.AddRange(
+            new Stock.API.Entities.Stock { ProductId = 1, Count = 200 },
+            new Stock.API.Entities.Stock { ProductId = 2, Count = 100 },
+            new Stock.API.Entities.Stock { ProductId = 3, Count = 50 },
+            new Stock.API.Entities.Stock { ProductId = 4, Count = 10 });
+        dbContext.SaveChanges();
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

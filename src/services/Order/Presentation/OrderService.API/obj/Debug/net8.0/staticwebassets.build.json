@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "Ecsk9GNaKoXB+JrAvoNA/sI+TGaZak0qfW6voX8ZFW0=",
-  "Source": "OrderService.API",
-  "BasePath": "_content/OrderService.API",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"xXNoJFx0Iwd9PfwYmYXI6g6u0GTOVhR88WNkshP/5kM=","Source":"OrderService.API","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

@@ -2,7 +2,7 @@ using System.Text.Json;
 using MediatR;
 using OrderService.Application.Repositories;
 using OrderService.Domain.Entities;
-using Shared.Events;
+using OrderService.Shared.Events;
 
 namespace OrderService.Application.Features.Commands.CreateOrder;
 

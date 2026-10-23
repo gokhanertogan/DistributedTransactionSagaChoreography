@@ -13,7 +13,9 @@ public class ApplicationDbContext : DbContext
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=localhost,1433;Database=ChoreographyOutboxOrderDB;User ID=SA;Password=Your_password123;TrustServerCertificate=True;");
+        // Fallback for design-time tooling (dotnet ef) only; at runtime the connection string comes from configuration.
+        if (!optionsBuilder.IsConfigured)
+            optionsBuilder.UseSqlServer("Server=localhost,1433;Database=ChoreographyOutboxOrderDB;User ID=SA;Password=Your_password123;TrustServerCertificate=True;");
     }
 
 

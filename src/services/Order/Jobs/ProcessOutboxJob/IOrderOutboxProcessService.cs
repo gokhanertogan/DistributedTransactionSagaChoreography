@@ -2,7 +2,7 @@ using System.Text.Json;
 using MassTransit;
 using OrderService.Application.Repositories;
 using OrderService.Domain.Entities;
-using Shared.Events;
+using OrderService.Shared.Events;
 
 namespace ProcessOutboxJob;
 
@@ -66,38 +66,37 @@ public class OrderOutboxProcessService(IOrderOutboxRepository orderOutboxReposit
 
     public async Task<bool> ProcessRecordAsync()
     {
+        if (!OrderSingletonDatabase.DataReaderState)
+            return true;
+
         try
         {
-            if (OrderSingletonDatabase.DataReaderState)
+            OrderSingletonDatabase.DataReaderBusy();
+            var pendingRecords = GetPendingRecords();
+
+            foreach (var record in pendingRecords)
             {
-                OrderSingletonDatabase.DataReaderBusy();
-                var pendingRecords = GetPendingRecords();
+                if (!await MarkAsInProgressAsync(record.IdempotentToken, record.Version))
+                    continue;
 
-                foreach (var record in pendingRecords)
+                if (record.Type == nameof(OrderCreatedEvent))
                 {
-                    await MarkAsInProgressAsync(record.IdempotentToken, record.Version);
-
-                    if (record.Type == nameof(OrderCreatedEvent))
+                    var order = JsonSerializer.Deserialize<Order>(record.Payload!);
+                    if (order != null)
                     {
-                        var order = JsonSerializer.Deserialize<Order>(record.Payload!);
-                        if (order != null)
+                        OrderCreatedEvent orderCreatedEvent = new()
                         {
-                            OrderCreatedEvent orderCreatedEvent = new()
-                            {
-                                Description = order.Description,
-                                OrderId = order.Id,
-                                Quantity = order.Quantity,
-                                IdempotentToken = record.IdempotentToken
-                            };
+                            Description = order.Description,
+                            OrderId = order.Id,
+                            Quantity = order.Quantity,
+                            IdempotentToken = record.IdempotentToken
+                        };
 
-                            await _publishEndpoint.Publish(orderCreatedEvent);
-                        }
+                        await _publishEndpoint.Publish(orderCreatedEvent);
                     }
-
-                    await MarkAsProcessedAsync(record.IdempotentToken, record.Version);
                 }
 
-                OrderSingletonDatabase.DataReaderReady();
+                await MarkAsProcessedAsync(record.IdempotentToken, record.Version);
             }
 
             return true;
@@ -105,6 +104,10 @@ public class OrderOutboxProcessService(IOrderOutboxRepository orderOutboxReposit
         catch
         {
             return false;
+        }
+        finally
+        {
+            OrderSingletonDatabase.DataReaderReady();
         }
     }
 }

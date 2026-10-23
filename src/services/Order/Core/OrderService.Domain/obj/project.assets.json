@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/OrderService.Domain.csproj",
+      "projectUniqueName": "/Users/gokhanertogan/repos/_profile-cleanup/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/OrderService.Domain.csproj",
       "projectName": "OrderService.Domain",
-      "projectPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/OrderService.Domain.csproj",
+      "projectPath": "/Users/gokhanertogan/repos/_profile-cleanup/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/OrderService.Domain.csproj",
       "packagesPath": "/Users/gokhanertogan/.nuget/packages/",
-      "outputPath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/",
+      "outputPath": "/Users/gokhanertogan/repos/_profile-cleanup/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/gokhanertogan/.nuget/NuGet/NuGet.Config"
@@ -43,7 +43,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -59,12 +60,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.22, 8.0.22]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.22, 8.0.22]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

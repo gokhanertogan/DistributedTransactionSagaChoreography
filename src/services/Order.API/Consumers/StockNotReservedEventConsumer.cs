@@ -5,10 +5,10 @@ using Shared.Events;
 
 namespace Order.API.Consumers;
 
-public class StockNotReservedEventConsumer(ApplicationDbContext dbContext, ILogger<PaymentCompletedEventConsumer> logger) : IConsumer<StockNotReservedEvent>
+public class StockNotReservedEventConsumer(ApplicationDbContext dbContext, ILogger<StockNotReservedEventConsumer> logger) : IConsumer<StockNotReservedEvent>
 {
     private readonly ApplicationDbContext _dbContext = dbContext;
-    private readonly ILogger<PaymentCompletedEventConsumer> _logger = logger;
+    private readonly ILogger<StockNotReservedEventConsumer> _logger = logger;
 
     public async Task Consume(ConsumeContext<StockNotReservedEvent> context)
     {

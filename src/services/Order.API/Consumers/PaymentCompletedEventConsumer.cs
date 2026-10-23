@@ -13,9 +13,9 @@ public class PaymentCompletedEventConsumer(ILogger<PaymentCompletedEventConsumer
     {
         var order = await _dbContext.Orders.FindAsync(context.Message.OrderId);
 
-        if (order is null)
+        if (order is not null)
         {
-            order!.Status = Enums.OrderStatus.Complete;
+            order.Status = Enums.OrderStatus.Complete;
             await _dbContext.SaveChangesAsync();
             _logger.LogInformation($"Order (Id={context.Message.OrderId}) status changed : {order?.Status}");
         }

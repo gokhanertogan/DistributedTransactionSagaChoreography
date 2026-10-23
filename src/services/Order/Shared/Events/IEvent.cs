@@ -1,4 +1,4 @@
-namespace Shared.Events;
+namespace OrderService.Shared.Events;
 
 public interface IEvent
 {

@@ -2,6 +2,8 @@ using OrderService.Persistence;
 using OrderService.Application;
 using OrderService.Application.Features.Commands.CreateOrder;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using OrderService.Persistence.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,11 @@ builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

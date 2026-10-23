@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "DhLZ0mVOuBc=",
+  "dgSpecHash": "9tOvy6z5S9Q=",
   "success": true,
-  "projectFilePath": "/Users/gokhanertogan/Downloads/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj",
+  "projectFilePath": "/Users/gokhanertogan/repos/_profile-cleanup/DistributedTransactionSagaChoreography/src/services/Order/Core/OrderService.Application/OrderService.Application.csproj",
   "expectedPackageFiles": [
     "/Users/gokhanertogan/.nuget/packages/mediatr/12.4.1/mediatr.12.4.1.nupkg.sha512",
     "/Users/gokhanertogan/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
-    "/Users/gokhanertogan/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+    "/Users/gokhanertogan/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/Users/gokhanertogan/.nuget/packages/microsoft.netcore.app.ref/8.0.22/microsoft.netcore.app.ref.8.0.22.nupkg.sha512",
+    "/Users/gokhanertogan/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512"
   ],
   "logs": []
 }

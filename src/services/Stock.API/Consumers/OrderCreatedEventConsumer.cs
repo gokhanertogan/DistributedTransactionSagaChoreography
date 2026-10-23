@@ -19,7 +19,7 @@ public class OrderCreatedEventConsumer(ApplicationDbContext dbContext, ILogger<O
 
         foreach (var item in context.Message.OrderItems)
         {
-            stockResult.Add(await _dbContext.Stocks.AnyAsync(x => x.ProductId == item.ProductId && x.Count > item.Count));
+            stockResult.Add(await _dbContext.Stocks.AnyAsync(x => x.ProductId == item.ProductId && x.Count >= item.Count));
         }
 
         if (stockResult.All(x => x.Equals(true)))

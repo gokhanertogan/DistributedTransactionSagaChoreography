@@ -1,6 +1,10 @@
 @OrderService.API_HostAddress = http://localhost:5107
 
-GET {{OrderService.API_HostAddress}}/weatherforecast/
-Accept: application/json
+### Stores the order and an outbox record in one transaction; ProcessOutboxJob publishes it
+POST {{OrderService.API_HostAddress}}/api/orders
+Content-Type: application/json
 
-###
+{
+  "quantity": 3,
+  "description": "outbox demo"
+}

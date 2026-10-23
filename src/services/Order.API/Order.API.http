@@ -1,6 +1,34 @@
 @Order.API_HostAddress = http://localhost:5106
 
-GET {{Order.API_HostAddress}}/weatherforecast/
-Accept: application/json
+### Succeeds: total 200 is below the simulated balance (3000)
+POST {{Order.API_HostAddress}}/orders
+Content-Type: application/json
 
-###
+{
+  "buyerId": "1",
+  "orderItems": [ { "productId": 1, "count": 2, "price": 100 } ],
+  "payment": { "cardName": "John Doe", "cardNumber": "4111111111111111", "expiration": "12/30", "cvv": "123", "totalPrice": 200 },
+  "address": { "line": "Main St 1", "province": "Istanbul", "district": "Besiktas" }
+}
+
+### Fails at payment: total 5000 exceeds the balance, reserved stock is released
+POST {{Order.API_HostAddress}}/orders
+Content-Type: application/json
+
+{
+  "buyerId": "1",
+  "orderItems": [ { "productId": 2, "count": 10, "price": 500 } ],
+  "payment": { "cardName": "John Doe", "cardNumber": "4111111111111111", "expiration": "12/30", "cvv": "123", "totalPrice": 5000 },
+  "address": { "line": "Main St 1", "province": "Istanbul", "district": "Besiktas" }
+}
+
+### Fails at stock: product 4 only has 10 units seeded
+POST {{Order.API_HostAddress}}/orders
+Content-Type: application/json
+
+{
+  "buyerId": "1",
+  "orderItems": [ { "productId": 4, "count": 50, "price": 1 } ],
+  "payment": { "cardName": "John Doe", "cardNumber": "4111111111111111", "expiration": "12/30", "cvv": "123", "totalPrice": 50 },
+  "address": { "line": "Main St 1", "province": "Istanbul", "district": "Besiktas" }
+}
